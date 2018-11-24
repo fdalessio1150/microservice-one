@@ -16,6 +16,7 @@ Como testar:
 * Configurar o application.properties conforme exemplo disponível do repositório resources
 
 Passando o payload em Json:
+
 curl -H "Content-Type:application/json" -kvX POST "http://localhost:8080/v1/call-service-two/50" \
 -d '{
     "id": "ab9ca49a-2fb5-4fd3-84ec-4095b560058f",
@@ -23,6 +24,7 @@ curl -H "Content-Type:application/json" -kvX POST "http://localhost:8080/v1/call
 }'
 
 Passando uma lista em Json:
+
 curl -H "Content-Type:application/json" -kvX POST "http://localhost:8080/v1/call-service-two-list/400" \
 -d '
 [
@@ -37,6 +39,7 @@ curl -H "Content-Type:application/json" -kvX POST "http://localhost:8080/v1/call
 ]'
 
 Para testar caso de fallback do serviço 2:
+
 curl -H "Content-Type:application/json" -kvX POST "http://localhost:8080/v1/call-service-two/1100" \
 -d '{
     "id": "ab9ca49a-2fb5-4fd3-84ec-4095b560058f",
@@ -44,6 +47,7 @@ curl -H "Content-Type:application/json" -kvX POST "http://localhost:8080/v1/call
 }'
 
 Repare que a resposta deve ser:
+
 "Fallback do serviço 2 ativado."
 
 
