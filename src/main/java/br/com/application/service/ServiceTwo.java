@@ -9,6 +9,9 @@ import java.util.List;
 
 @FeignClient(name = "SERVICE-TWO", url = "http://localhost:8081", fallback = ServiceTwoFallback.class)
 public interface ServiceTwo {
+    @RequestMapping(method = RequestMethod.POST, value = "/v1/clients", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public String callServiceTwoClients(Client client) throws InterruptedException;
+    
     @RequestMapping(method = RequestMethod.POST, value = "/v1/work/{time}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String callServiceTwo(@PathVariable("time") Long time, Client client);
     

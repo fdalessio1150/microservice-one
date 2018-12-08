@@ -26,6 +26,12 @@ public class Controller {
         this.serviceThree = serviceThree;
     }
 
+    @RequestMapping(value = "/v1/clients", method = RequestMethod.POST)
+    public String callServiceTwoClients(@RequestBody Client client) throws InterruptedException {
+    	serviceTwo.callServiceTwoClients(client);
+        return serviceThree.callServiceThree(Long.valueOf(700));
+    }
+    
     @RequestMapping(value = "/v1/call-service-two/{time}", method = RequestMethod.POST)
     public String callServiceTwo(@PathVariable Long time, @RequestBody Client client) {
         return serviceTwo.callServiceTwo(time, client);
